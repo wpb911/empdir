@@ -13,7 +13,7 @@ function Container(){
 
     //&seed=seed if the same data is needed for testing 
     async function getRandomUsers(){
-        const result = await axios.get('https://randomuser.me/api/?results=20&inc=name,phone,email,location,picture&seed=seed&nat=us,gb,fr')
+        const result = await axios.get('https://randomuser.me/api/?results=50&inc=name,phone,email,location,picture&seed=firsttime&nat=us,gb,fr,au,br')
         setUsers(result.data.results)
     }
 
@@ -83,6 +83,22 @@ function Container(){
         console.log('Sorted List: ', sorted)
         setUsers([...sorted])
     }
+
+    function sortCountry(){
+        console.log('SORTING!!!!')
+        const sorted = users.sort( function(item1, item2){
+            if(item1.location.country < item2.location.country){
+                return -1
+            }
+            if (item1.location.country > item2.location.country){
+                return 1
+            }
+            return 0
+        })
+        console.log('Sorted List: ', sorted)
+        setUsers([...sorted])
+    }
+
     function sortEmailA(){
         console.log('SORTING!!!!')
         const sorted = users.sort( function(item2, item1){
@@ -138,9 +154,9 @@ function Container(){
                 
             </div>
             <div style={{display: "flex", justifyContent: "center", color: "black"}}>
-                <p><small>Hover to the right of the Name, Phone Number or Email to Sort Employees(Ascending or Descending)</small></p>
+                <p><small>Hover to the right of the Name, Phone Number, Email or Location[Country] to Sort Employees(Ascending or Descending)</small></p>
             </div>
-            <Table list={users} sortName={sortName} sortNameA={sortNameA} sortEmail={sortEmail} sortEmailA={sortEmailA} sortNumber={sortNumber} sortNumberA={sortNumberA}/>
+            <Table list={users} sortName={sortName} sortNameA={sortNameA} sortEmail={sortEmail} sortEmailA={sortEmailA} sortNumber={sortNumber} sortNumberA={sortNumberA} sortCountry={sortCountry}/>
         </div>
     )
 }

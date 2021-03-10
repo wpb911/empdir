@@ -11,7 +11,7 @@ function Table(props){
                 <th>Phone Number <button className='filter' onClick={props.sortNumber}><i className="fa fa-sort-numeric-asc"></i></button><button className='filter' onClick={props.sortNumberA}><i className="fa fa-sort-numeric-desc"></i></button></th>
                 <th>Email <button className='filter' onClick={props.sortEmail}><i className="fa fa-sort-alpha-asc"></i></button><button className='filter' onClick={props.sortEmailA}><i className="fa fa-sort-alpha-desc"></i></button></th>
                 
-                <th>Location(City, State, Country)</th>
+                <th>Location(City, State, Country) <button className='filter' onClick={props.sortCountry}><i className="fa fa-sort-alpha-asc"></i></button></th>
                 </tr>
             </thead>
             <tbody>

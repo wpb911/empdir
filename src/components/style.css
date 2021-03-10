@@ -4,7 +4,7 @@ li{
 
 nav{
     display: flex;
-    justify-content: center;
+    justify-content: left;
     background-color: rgb(245, 188, 30);
     border-bottom: 10px solid #000000;
     padding-top: 10px;
